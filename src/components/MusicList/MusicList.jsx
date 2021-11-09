@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { StoreContext } from "../../store/StoreProvider";
 import music from "../../images/music.png";
+import best from "../../images/best.png";
 
 const MusicList = () => {
   const [lookSystem, setLookSystem] = useState("grid");
-  const { playlist } = useContext(StoreContext);
+  const { playlist, sort } = useContext(StoreContext);
   const emptyPlaylist = (
     <div className="my-5">
       <p className="text-center">Lista ulubionych jest pusta</p>
@@ -22,6 +23,32 @@ const MusicList = () => {
     </div>
   );
 
+  const sortedPlaylist = () => {
+    const newPlaylist = playlist;
+    if (sort === "az") {
+      newPlaylist.sort((a, b) =>
+        a.title > b.title ? 1 : b.songName > a.songName ? -1 : 0
+      );
+    } else if (sort === "za") {
+      newPlaylist.sort((a, b) =>
+        a.title < b.title ? 1 : b.songName < a.songName ? -1 : 0
+      );
+    } else if (sort === "idUp") {
+      newPlaylist.sort((a, b) => parseFloat(a.id) - parseFloat(b.id));
+    } else if (sort === "idDown") {
+      newPlaylist.sort((a, b) => parseFloat(b.id) - parseFloat(a.id));
+    } else if (sort === "addUp") {
+      newPlaylist.sort(function (a, b) {
+        var c = new Date(a.addedDate);
+        var d = new Date(b.addedDate);
+        return d - c;
+      });
+    } else {
+      newPlaylist.sort((a, b) => parseFloat(a.id) - parseFloat(b.id));
+    }
+    return newPlaylist;
+  };
+
   const gridSongs =
     playlist.length > 0 &&
     playlist.map((song) => {
@@ -29,12 +56,15 @@ const MusicList = () => {
 
       return (
         <div className="col-md-4 card">
-          <img
-            src={music}
-            class="card-img-top mx-auto"
-            style={{ height: "100px", width: "100px" }}
-            alt="..."
-          />
+          <div className="mx-auto">
+            <img
+              src={music}
+              class="card-img-top"
+              style={{ height: "100px", width: "100px" }}
+              alt="..."
+            />
+            {fav && <img src={best} style={{ position: "absolute" }} alt="" />}
+          </div>
           <div class="card-body d-flex flex-column">
             <p
               class="card-title text-center font-weight-bold"
@@ -94,6 +124,7 @@ const MusicList = () => {
     });
 
   const elementsToShow = () => {
+    sortedPlaylist();
     if (lookSystem === "grid") {
       return <div className="row">{gridSongs}</div>;
     } else if (lookSystem === "column") {
