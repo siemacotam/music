@@ -13,24 +13,6 @@ const MusicList = () => {
     </div>
   );
 
-  //   const handleRemove = (id) => {
-  //     const searchedItem = playlist.findIndex((item) => item.id === id);
-  //     if (searchedItem !== -1) {
-  //       const newArray = [...playlist];
-  //       newArray.splice(searchedItem, 1);
-  //       setPlaylist(newArray);
-  //     }
-  //   };
-  //   const handleAddToFav = (id) => {
-  //     console.log(playlist);
-  //     const searchedItem = playlist.find((song) => song.id === id);
-  //     const searchedItemIndex = playlist.findIndex((song) => song.id === id);
-  //     searchedItem.fav = !searchedItem.fav;
-  //     const newArray = [...playlist];
-  //     newArray.splice(searchedItemIndex, 1, searchedItem);
-  //     setPlaylist(newArray);
-  //   };
-
   const sortedPlaylist = () => {
     const newPlaylist = playlist;
     if (sort === "az") {
@@ -93,20 +75,6 @@ const MusicList = () => {
             <br />
             <small class="card-text text-muted">Id {id}</small>
             <div className="row justify-content-around m-2">
-              {/* <button
-                onClick={() => handleAddToFav(id)}
-                data-value={id}
-                className="btn btn-white col-4 d-flex justify-content-center "
-              >
-                <i className="fa fa-heart"></i>
-              </button> */}
-              {/* <button
-                data-value={id}
-                onClick={() => handleRemove(id)}
-                className="btn btn-white col-4 d-flex justify-content-center"
-              >
-                <i className="fa fa-minus-square"></i>
-              </button> */}
               <Buttons isFav={false} id={id} />
               <Buttons isFav={true} id={id} />
             </div>
@@ -157,20 +125,6 @@ const MusicList = () => {
           <td>{id}</td>
           <td>
             <div className="row justify-content-around m-2">
-              {/* <button
-                onClick={() => handleAddToFav(id)}
-                data-value={id}
-                className="btn btn-white col-4 d-flex justify-content-center "
-              >
-                <i className="fa fa-heart"></i>
-              </button>
-              <button
-                data-value={id}
-                onClick={() => handleRemove(id)}
-                className="btn btn-white col-4 d-flex justify-content-center"
-              >
-                <i className="fa fa-minus-square"></i>
-              </button> */}
               <Buttons isFav={false} id={id} />
               <Buttons isFav={true} id={id} />
             </div>

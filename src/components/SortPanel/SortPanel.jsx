@@ -35,14 +35,34 @@ const SortPanel = () => {
     }
   };
 
+  const { addUp, addDown, idDown, idUp, az, za } = allValues;
+
   const variants = [
-    { text: "Data dodania up" },
-    { text: "Data dodania down" },
-    { text: "A - Z" },
-    { text: "Z - A" },
-    { text: "Id rosnaco" },
-    { text: "Id malejąco" },
+    { label: "Data dodania rosnąco", text: "addUp", value: addUp },
+    { label: "Data dodania malejąco", text: "addDown", value: addDown },
+    { label: "A - Z", text: "az", value: az },
+    { label: "Z - A", text: "za", value: za },
+    { label: "Id rosnąco", text: "idUp", value: idUp },
+    { label: "Id malejąco", text: "idDown", value: idDown },
   ];
+
+  const allLabels = () => {
+    return variants.map((item) => {
+      return (
+        <label className="d-flex mb-2 align-items-center">
+          <input
+            className="mx-3"
+            data-value={item.text}
+            name={item.text}
+            onChange={changeHandler}
+            type="checkbox"
+            checked={item.value}
+          />
+          {item.label}
+        </label>
+      );
+    });
+  };
 
   return (
     <>
@@ -56,76 +76,7 @@ const SortPanel = () => {
               <strong>Sortuj playliste</strong>
             </button>
           </h3>
-          {isOpen && (
-            <div className="px-3 my-3">
-              <label className="d-flex mb-2 align-items-center">
-                <input
-                  className="mx-3"
-                  data-value="addUp"
-                  name="addUp"
-                  onChange={changeHandler}
-                  type="checkbox"
-                  checked={allValues.addUp}
-                />
-                Data dodania up
-              </label>
-              <label className="d-flex mb-2 align-items-center">
-                <input
-                  className="mx-3"
-                  data-value="addDown"
-                  name="addDown"
-                  onChange={changeHandler}
-                  type="checkbox"
-                  checked={allValues.addDown}
-                />
-                Data dodania down
-              </label>
-              <label className="d-flex mb-2 align-items-center">
-                <input
-                  className="mx-3"
-                  data-value="idUp"
-                  name="idUp"
-                  onChange={changeHandler}
-                  type="checkbox"
-                  checked={allValues.idUp}
-                />
-                Id up
-              </label>
-              <label className="d-flex mb-2 align-items-center">
-                <input
-                  className="mx-3"
-                  data-value="idDown"
-                  name="idDown"
-                  onChange={changeHandler}
-                  type="checkbox"
-                  checked={allValues.idDown}
-                />
-                Id down
-              </label>
-              <label className="d-flex mb-2 align-items-center">
-                <input
-                  className="mx-3"
-                  data-value="az"
-                  name="az"
-                  onChange={changeHandler}
-                  type="checkbox"
-                  checked={allValues.az}
-                />
-                A-Z
-              </label>
-              <label className="d-flex mb-2 align-items-center">
-                <input
-                  className="mx-3"
-                  data-value="za"
-                  name="za"
-                  onChange={changeHandler}
-                  type="checkbox"
-                  checked={allValues.za}
-                />
-                Z-A
-              </label>
-            </div>
-          )}
+          {isOpen && <div className="px-3 my-3">{allLabels()}</div>}
         </div>
       </div>
     </>
