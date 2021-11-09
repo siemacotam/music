@@ -4,24 +4,31 @@ import music from "../../images/music.png";
 import best from "../../images/best.png";
 
 const MusicList = () => {
+  const { playlist, setPlaylist, sort } = useContext(StoreContext);
   const [lookSystem, setLookSystem] = useState("grid");
-  const { playlist, sort } = useContext(StoreContext);
   const emptyPlaylist = (
     <div className="my-5">
       <p className="text-center">Lista ulubionych jest pusta</p>
     </div>
   );
 
-  const buttonsPanel = (
-    <div className="row justify-content-around m-2">
-      <button className="btn btn-white col-4 d-flex justify-content-center ">
-        <i className="fa fa-heart"></i>
-      </button>
-      <button className="btn btn-white col-4 d-flex justify-content-center">
-        <i className="fa fa-minus-square"></i>
-      </button>
-    </div>
-  );
+  const handleRemove = (id) => {
+    const searchedItem = playlist.findIndex((item) => item.id === id);
+    if (searchedItem !== -1) {
+      const newArray = [...playlist];
+      newArray.splice(searchedItem, 1);
+      setPlaylist(newArray);
+    }
+  };
+  const handleAddToFav = (id) => {
+    console.log(playlist);
+    const searchedItem = playlist.find((song) => song.id === id);
+    const searchedItemIndex = playlist.findIndex((song) => song.id === id);
+    searchedItem.fav = !searchedItem.fav;
+    const newArray = [...playlist];
+    newArray.splice(searchedItemIndex, 1, searchedItem);
+    setPlaylist(newArray);
+  };
 
   const sortedPlaylist = () => {
     const newPlaylist = playlist;
@@ -29,6 +36,7 @@ const MusicList = () => {
       newPlaylist.sort((a, b) =>
         a.title > b.title ? 1 : b.songName > a.songName ? -1 : 0
       );
+      setPlaylist(newPlaylist);
     } else if (sort === "za") {
       newPlaylist.sort((a, b) =>
         a.title < b.title ? 1 : b.songName < a.songName ? -1 : 0
@@ -70,7 +78,7 @@ const MusicList = () => {
               class="card-title text-center font-weight-bold"
               style={{ wordWrap: "break-word" }}
             >
-              {songName}
+              <strong>{songName}</strong>
             </p>
             <p
               class="card-title text-center flex-grow-1"
@@ -83,7 +91,22 @@ const MusicList = () => {
             </small>{" "}
             <br />
             <small class="card-text text-muted">Id {id}</small>
-            {buttonsPanel}
+            <div className="row justify-content-around m-2">
+              <button
+                onClick={() => handleAddToFav(id)}
+                data-value={id}
+                className="btn btn-white col-4 d-flex justify-content-center "
+              >
+                <i className="fa fa-heart"></i>
+              </button>
+              <button
+                data-value={id}
+                onClick={() => handleRemove(id)}
+                className="btn btn-white col-4 d-flex justify-content-center"
+              >
+                <i className="fa fa-minus-square"></i>
+              </button>
+            </div>
           </div>
         </div>
       );
@@ -96,6 +119,7 @@ const MusicList = () => {
         <th scope="col">#</th>
         <th scope="col">Song</th>
         <th scope="col">Date</th>
+        <th>id</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -105,20 +129,47 @@ const MusicList = () => {
     playlist.length > 0 &&
     playlist.map((song) => {
       const { id, author, songName, addedDate, fav } = song;
+      const itemIndex = playlist.findIndex((song) => song.id === id);
       return (
         <tr>
           <th>
-            <img src={music} alt="" style={{ height: "50px", width: "50px" }} />
+            {fav && (
+              <img
+                src={best}
+                style={{ height: "30px", width: "30px" }}
+                alt=""
+              />
+            )}
           </th>
-          <th scope="row">{id}</th>
+          <th scope="row">{itemIndex + 1}</th>
           <td>
             <div className="d-flex flex-column">
-              <p>{songName}</p>
+              <p>
+                <strong>{songName}</strong>
+              </p>
               <p>{author}</p>
             </div>
           </td>
           <td>{addedDate}</td>
-          <td>{buttonsPanel}</td>
+          <td>{id}</td>
+          <td>
+            <div className="row justify-content-around m-2">
+              <button
+                onClick={() => handleAddToFav(id)}
+                data-value={id}
+                className="btn btn-white col-4 d-flex justify-content-center "
+              >
+                <i className="fa fa-heart"></i>
+              </button>
+              <button
+                data-value={id}
+                onClick={() => handleRemove(id)}
+                className="btn btn-white col-4 d-flex justify-content-center"
+              >
+                <i className="fa fa-minus-square"></i>
+              </button>
+            </div>
+          </td>
         </tr>
       );
     });

@@ -48,14 +48,13 @@ const AddSongForm = () => {
       newList.push(newSong);
       setPlaylist(newList);
       reset();
-      console.log(playlist);
     } else {
       setValidateInfo(true);
     }
   };
 
   return (
-    <form className="accordion-content mt-3 mb-2 px-3">
+    <form className="accordion-content mt-3 mb-3 px-3">
       <div className="mb-2">
         <label>Nazwa wykonawcy</label>
         <input

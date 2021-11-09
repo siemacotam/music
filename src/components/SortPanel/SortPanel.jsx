@@ -50,16 +50,17 @@ const SortPanel = () => {
         <div className="accordion-item">
           <h3 className="accordion-header border-bottom">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button collapsed "
               onClick={() => setIsOpen(!isOpen)}
             >
-              Sortuj playliste
+              <strong>Sortuj playliste</strong>
             </button>
           </h3>
           {isOpen && (
-            <div>
-              <label className="d-flex">
+            <div className="px-3 my-3">
+              <label className="d-flex mb-2 align-items-center">
                 <input
+                  className="mx-3"
                   data-value="addUp"
                   name="addUp"
                   onChange={changeHandler}
@@ -68,8 +69,9 @@ const SortPanel = () => {
                 />
                 Data dodania up
               </label>
-              <label className="d-flex">
+              <label className="d-flex mb-2 align-items-center">
                 <input
+                  className="mx-3"
                   data-value="addDown"
                   name="addDown"
                   onChange={changeHandler}
@@ -78,8 +80,9 @@ const SortPanel = () => {
                 />
                 Data dodania down
               </label>
-              <label className="d-flex">
+              <label className="d-flex mb-2 align-items-center">
                 <input
+                  className="mx-3"
                   data-value="idUp"
                   name="idUp"
                   onChange={changeHandler}
@@ -88,8 +91,9 @@ const SortPanel = () => {
                 />
                 Id up
               </label>
-              <label className="d-flex">
+              <label className="d-flex mb-2 align-items-center">
                 <input
+                  className="mx-3"
                   data-value="idDown"
                   name="idDown"
                   onChange={changeHandler}
@@ -98,8 +102,9 @@ const SortPanel = () => {
                 />
                 Id down
               </label>
-              <label className="d-flex">
+              <label className="d-flex mb-2 align-items-center">
                 <input
+                  className="mx-3"
                   data-value="az"
                   name="az"
                   onChange={changeHandler}
@@ -108,8 +113,9 @@ const SortPanel = () => {
                 />
                 A-Z
               </label>
-              <label className="d-flex">
+              <label className="d-flex mb-2 align-items-center">
                 <input
+                  className="mx-3"
                   data-value="za"
                   name="za"
                   onChange={changeHandler}

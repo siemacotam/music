@@ -10,10 +10,10 @@ const AddMusicPanel = () => {
         <div className="accordion-item">
           <h3 className="accordion-header border-bottom">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button collapsed "
               onClick={() => setIsOpen(!isOpen)}
             >
-              Dodaj nowy utwór
+              <strong>Dodaj nowy utwór</strong>
             </button>
           </h3>
           {isOpen && <AddSongForm />}
