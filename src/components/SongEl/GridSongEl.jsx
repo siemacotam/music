@@ -19,33 +19,39 @@ const GridSongEl = ({ itemToShow }) => {
       );
 
       return (
-        <div className={fav ? "col-md-4 card border-success" : "col-md-4 card"}>
-          <div className="mx-auto">
-            <img
-              src={music}
-              class="card-img-top"
-              style={{ height: "100px", width: "100px" }}
-              alt="..."
-            />
-            {fav && <img src={best} style={{ position: "absolute" }} alt="" />}
-          </div>
-          <div class="card-body d-flex flex-column">
-            <p
-              class="card-title text-center font-weight-bold song-title text-big"
-              style={{ wordWrap: "break-word" }}
-            >
-              <strong>{songName}</strong>
-            </p>
-            <p
-              class="card-title text-center flex-grow-1"
-              style={{ wordWrap: "break-word" }}
-            >
-              {author}
-            </p>
-            {addAndIdPanel}
-            <div className="row justify-content-around m-2">
-              <Buttons isFav={false} id={id} fav={fav} />
-              <Buttons isFav={true} id={id} fav={fav} />
+        <div className="col-md-4 p-2">
+          <div
+            className={fav ? "card bg-white border-success" : "card bg-white"}
+          >
+            <div className="mx-auto">
+              <img
+                src={music}
+                class="card-img-top"
+                style={{ height: "100px", width: "100px" }}
+                alt="..."
+              />
+              {fav && (
+                <img src={best} style={{ position: "absolute" }} alt="" />
+              )}
+            </div>
+            <div class="card-body d-flex flex-column">
+              <p
+                class="card-title text-center font-weight-bold song-title text-big"
+                style={{ wordWrap: "break-word" }}
+              >
+                <strong>{songName}</strong>
+              </p>
+              <p
+                class="card-title text-center flex-grow-1"
+                style={{ wordWrap: "break-word" }}
+              >
+                {author}
+              </p>
+              {addAndIdPanel}
+              <div className="row justify-content-around m-2">
+                <Buttons isFav={false} id={id} fav={fav} />
+                <Buttons isFav={true} id={id} fav={fav} />
+              </div>
             </div>
           </div>
         </div>
