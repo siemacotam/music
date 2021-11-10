@@ -1,0 +1,33 @@
+.text-big {
+    font-size: 1.3rem;
+}
+
+button:disabled {
+    background-color: $disabled-color;
+    color: white;
+    border-color: white;
+}
+button:disabled:hover {
+    background-color: $disabled-color;
+    color: white;
+    border-color: white;
+}
+
+h1 {
+    font-family: $special-font; 
+    letter-spacing: 3px;
+}
+
+.bg {
+    position: fixed;
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    left: 0;
+    right:0;
+    bottom:0;
+    top: 0;
+    z-index: -1;
+    opacity: 0.3;
+}

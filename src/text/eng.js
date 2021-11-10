@@ -23,6 +23,7 @@ export const eng = {
         idDown: 'ID - descending',
     },
     album: {
-        added: 'Added to list:'
+        added: 'Added to list:',
+        empty: 'List of albums is empty.',
     }
 }

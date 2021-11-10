@@ -6,64 +6,64 @@ const Header = () => {
   const { setLookSystem, setLanguage, language, lookSystem } =
     useContext(StoreContext);
 
+  const btnStyles = (info) => {
+    if (language === info || lookSystem === info) {
+      return "btn btn-white p-0 mx-1 border bg-info";
+    } else {
+      return "btn btn-white p-0 mx-1 border bg-white";
+    }
+  };
+
+  const languageBtnsPanel = (
+    <div>
+      <button
+        style={{ height: "35px", width: "35px" }}
+        className={btnStyles("pl")}
+        onClick={() => {
+          setLanguage("pl");
+        }}
+      >
+        PL
+      </button>
+      <button
+        style={{ height: "35px", width: "35px" }}
+        className={btnStyles("eng")}
+        onClick={() => {
+          setLanguage("eng");
+        }}
+      >
+        EN
+      </button>
+    </div>
+  );
+
+  const albumsViewPanel = (
+    <div>
+      <button
+        style={{ height: "35px", width: "35px" }}
+        className={btnStyles("grid")}
+        onClick={() => {
+          setLookSystem("grid");
+        }}
+      >
+        <i className="fa fa-th"></i>
+      </button>
+      <button
+        style={{ height: "35px", width: "35px" }}
+        className={btnStyles("column")}
+        onClick={() => {
+          setLookSystem("column");
+        }}
+      >
+        <i className="fa fa-bars"></i>
+      </button>
+    </div>
+  );
+
   const buttonsPanel = (
     <div className="d-flex flex-column justify-content-end m-1">
-      <div>
-        <button
-          style={{ height: "35px", width: "35px" }}
-          className={
-            language === "pl"
-              ? "btn btn-white p-0 mx-1 border bg-info"
-              : "btn btn-white p-0 mx-1 border bg-white"
-          }
-          onClick={() => {
-            setLanguage("pl");
-          }}
-        >
-          PL
-        </button>
-        <button
-          style={{ height: "35px", width: "35px" }}
-          className={
-            language === "eng"
-              ? "btn btn-white p-0 mx-1 border bg-info"
-              : "btn btn-white p-0 mx-1 border bg-white"
-          }
-          onClick={() => {
-            setLanguage("eng");
-          }}
-        >
-          EN
-        </button>
-      </div>
-      <div>
-        <button
-          style={{ height: "35px", width: "35px" }}
-          className={
-            lookSystem === "grid"
-              ? "btn btn-white p-0 mx-1 border bg-info"
-              : "btn btn-white p-0 mx-1 border bg-white"
-          }
-          onClick={() => {
-            setLookSystem("grid");
-          }}
-        >
-          <i className="fa fa-th"></i>
-        </button>
-        <button
-          style={{ height: "35px", width: "35px" }}
-          className={
-            lookSystem === "column"
-              ? "btn btn-white p-0 mx-1 border bg-info"
-              : "btn btn-white p-0 mx-1 border bg-white"
-          }
-          onClick={() => {
-            setLookSystem("column");
-          }}
-        >
-          <i className="fa fa-bars"></i>
-        </button>
-      </div>
+      {languageBtnsPanel}
+      {albumsViewPanel}
     </div>
   );
   return (

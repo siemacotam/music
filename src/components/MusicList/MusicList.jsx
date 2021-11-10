@@ -6,6 +6,7 @@ import {
 } from "../../store/StoreProvider";
 import GridSongEl from "../SongEl/GridSongEl";
 import ColumnSongEl from "../SongEl/ColumnSongEl";
+import Translate from "../../text/Translate";
 
 const MusicList = () => {
   const {
@@ -20,8 +21,8 @@ const MusicList = () => {
   } = useContext(StoreContext);
 
   useEffect(() => {
-    var retrievedObject = localStorage.getItem("testObject");
-    var retrievedId = localStorage.getItem("id");
+    const retrievedObject = localStorage.getItem("favObject");
+    const retrievedId = localStorage.getItem("id");
     if (retrievedObject) {
       const data = JSON.parse(retrievedObject);
       setPlaylist(data);
@@ -32,16 +33,16 @@ const MusicList = () => {
     }
   }, []);
   useEffect(() => {
-    var testObject = playlist;
-    var currentId = id;
+    const favObject = playlist;
+    const currentId = id;
 
-    localStorage.setItem("testObject", JSON.stringify(testObject));
+    localStorage.setItem("favObject", JSON.stringify(favObject));
     localStorage.setItem("id", JSON.stringify(currentId));
   }, [playlist]);
 
   const emptyPlaylist = (
     <div className="my-5">
-      <p className="text-center">Lista ulubionych jest pusta</p>
+      <p className="text-center">{Translate().album.empty}</p>
     </div>
   );
 
@@ -61,8 +62,8 @@ const MusicList = () => {
       newPlaylist.sort((a, b) => parseFloat(b.id) - parseFloat(a.id));
     } else if (sort === "addUp") {
       newPlaylist.sort(function (a, b) {
-        var c = new Date(a.addedDate);
-        var d = new Date(b.addedDate);
+        const c = new Date(a.addedDate);
+        const d = new Date(b.addedDate);
         return d - c;
       });
     } else {

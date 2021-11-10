@@ -23,6 +23,7 @@ export const pl = {
         idDown: 'ID malejąco',
     },
     album: {
-        added: 'Dodano:'
+        added: 'Dodano:',
+        empty: 'Lista albumów jest pusta.',
     }
 }

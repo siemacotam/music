@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
 import './sass/style.sass'
 import StoreProvider from './store/StoreProvider';
 import Header from './layout/Header';

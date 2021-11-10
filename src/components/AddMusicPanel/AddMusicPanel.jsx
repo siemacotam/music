@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Translate from "../../text/Translate";
-import AddSongForm from "./AddSongForm";
+import AddAlbumForm from "./AddAlbumForm";
 
 const AddMusicPanel = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -17,7 +17,7 @@ const AddMusicPanel = () => {
               <strong>{Translate().addPanel.title}</strong>
             </button>
           </h3>
-          {isOpen && <AddSongForm />}
+          {isOpen && <AddAlbumForm />}
         </div>
       </div>
     </>

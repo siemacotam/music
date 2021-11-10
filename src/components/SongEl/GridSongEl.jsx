@@ -15,7 +15,6 @@ const GridSongEl = ({ itemToShow }) => {
             {Translate().album.added}{" "}
             {addedDate.substring(0, addedDate.indexOf(","))}
           </p>
-
           <p className="card-text text-muted text-center">Id {id}</p>
         </div>
       );
