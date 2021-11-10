@@ -16,11 +16,11 @@ const ColumnSongEl = ({ itemToShow }) => {
 
   const tableThead = () => {
     const thEl = theads.map((item) => {
-      return <th scope="col">{item.name}</th>;
+      return <th scope="col th-lg">{item.name}</th>;
     });
 
     return (
-      <thead>
+      <thead className="thead-dark">
         <tr>{thEl}</tr>
       </thead>
     );
@@ -52,7 +52,9 @@ const ColumnSongEl = ({ itemToShow }) => {
             </div>
           </td>
           <td>{addedDate.substring(0, addedDate.indexOf(","))}</td>
-          <td>{id}</td>
+          <td>
+            <p className="m-0">{id}</p>
+          </td>
           <td>
             <div className="row justify-content-around m-2">
               <Buttons isFav={false} id={id} fav={fav} />

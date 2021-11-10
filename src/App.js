@@ -4,11 +4,11 @@ import AddMusicPanel from './components/AddMusicPanel/AddMusicPanel';
 import MusicList from './components/MusicList/MusicList';
 import SortPanel from './components/SortPanel/SortPanel';
 import './sass/style.sass'
-import nuta from './images/nuta.png'
 import StoreProvider from './store/StoreProvider';
 import Header from './layout/Header';
 
 function App() {
+
   return (
     <StoreProvider>
     <div className="App h-100 w-100">

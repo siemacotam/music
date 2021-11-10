@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect } from "react";
 import {
   StoreContext,
   albumsPerPageGrid,
@@ -9,8 +9,37 @@ import ColumnSongEl from "../SongEl/ColumnSongEl";
 import Pagination from "../Pagination/Pagination";
 
 const MusicList = () => {
-  const { playlist, sort, activePage, lookSystem, setLookSystem } =
-    useContext(StoreContext);
+  const {
+    playlist,
+    setPlaylist,
+    id,
+    setId,
+    sort,
+    activePage,
+    lookSystem,
+    setLookSystem,
+  } = useContext(StoreContext);
+
+  useEffect(() => {
+    var retrievedObject = localStorage.getItem("testObject");
+    var retrievedId = localStorage.getItem("id");
+    if (retrievedObject) {
+      const data = JSON.parse(retrievedObject);
+      setPlaylist(data);
+    }
+    if (retrievedId) {
+      const data = JSON.parse(retrievedId);
+      setId(data);
+    }
+  }, []);
+  useEffect(() => {
+    var testObject = playlist;
+    var currentId = id;
+
+    localStorage.setItem("testObject", JSON.stringify(testObject));
+    localStorage.setItem("id", JSON.stringify(currentId));
+  }, [playlist]);
+
   const emptyPlaylist = (
     <div className="my-5">
       <p className="text-center">Lista ulubionych jest pusta</p>

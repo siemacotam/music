@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import {
-  albumsPerPage,
   albumsPerPageColumn,
   albumsPerPageGrid,
   StoreContext,
@@ -42,9 +41,8 @@ const Pagination = () => {
 
   const numbOfPages = () => {
     let pagesArray = [];
-    const pagesCount = howManyPages;
     if (playlist.length > 0) {
-      for (let i = 0; i < pagesCount; i++) {
+      for (let i = 0; i < howManyPages; i++) {
         pagesArray.push(pageEl(i + 1));
       }
     }

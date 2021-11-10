@@ -44,7 +44,7 @@ const AddSongForm = () => {
         fav: fav,
       };
       setId((prev) => prev + 1);
-      let newList = playlist;
+      let newList = [...playlist];
       newList.push(newSong);
       setPlaylist(newList);
       reset();

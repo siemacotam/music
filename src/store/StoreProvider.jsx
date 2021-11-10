@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 
 export const StoreContext = createContext(null);
 
-export const albumsPerPage = 6;
 export const albumsPerPageGrid = 6;
 export const albumsPerPageColumn = 10;
 
