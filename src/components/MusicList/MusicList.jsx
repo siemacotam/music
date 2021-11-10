@@ -44,9 +44,11 @@ const MusicList = () => {
       return <div className="row">{<GridSongEl />}</div>;
     } else if (lookSystem === "column") {
       return (
-        <table class="table table-responsive-xl table-striped table-hover ">
-          <ColumnSongEl />
-        </table>
+        <div className="table-responsive table-striped table-hover">
+          <table class="table table-striped table-hover ">
+            <ColumnSongEl />
+          </table>
+        </div>
       );
     }
   };

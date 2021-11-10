@@ -54,7 +54,7 @@ const AddSongForm = () => {
   };
 
   return (
-    <form className="accordion-content mt-3 mb-3 px-3">
+    <form className="accordion-content mt-3 mb-3 px-3 ">
       <div className="mb-2">
         <label>Nazwa wykonawcy</label>
         <input

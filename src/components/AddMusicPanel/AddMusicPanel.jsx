@@ -6,7 +6,7 @@ const AddMusicPanel = () => {
 
   return (
     <>
-      <div className="accordion mb-3">
+      <div className="accordion mb-3 ">
         <div className="accordion-item">
           <h3 className="accordion-header border-bottom">
             <button
