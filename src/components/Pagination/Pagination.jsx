@@ -4,6 +4,7 @@ import {
   albumsPerPageGrid,
   StoreContext,
 } from "../../store/StoreProvider";
+import Translate from "../../text/Translate";
 
 const Pagination = () => {
   const [numberOfPages, setNumberOfPages] = useState(1);
@@ -58,7 +59,7 @@ const Pagination = () => {
           setActivePage((prev) => prev - 1);
         }}
       >
-        Previous
+        {Translate().pagination.prevBtn}
       </button>
     </li>
   );
@@ -72,7 +73,7 @@ const Pagination = () => {
           setActivePage((prev) => prev + 1);
         }}
       >
-        Next
+        {Translate().pagination.nextBtn}
       </button>
     </li>
   );

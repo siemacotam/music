@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { StoreContext } from "../../store/StoreProvider";
+import Translate from "../../text/Translate";
 
 const AddSongForm = () => {
   const [author, setAuthor] = useState("");
@@ -28,7 +29,7 @@ const AddSongForm = () => {
 
   const validateText = (
     <small className="form-text text-danger">
-      wszystkie pola muszą zostać wypełnione
+      {Translate().addPanel.validate}
     </small>
   );
 
@@ -56,23 +57,23 @@ const AddSongForm = () => {
   return (
     <form className="accordion-content mt-3 mb-3 px-3 ">
       <div className="mb-2">
-        <label>Nazwa wykonawcy</label>
+        <label>{Translate().addPanel.artistLabel}</label>
         <input
           onChange={handleAuthorChange}
           value={author}
           type="text"
           className="form-control"
-          placeholder="Wpisz nazwe wykonawcy"
+          placeholder={Translate().addPanel.artistPlaceholder}
         />
       </div>
       <div className="mb-2">
-        <label>Nazwa albumu</label>
+        <label>{Translate().addPanel.albumLabel}</label>
         <input
           onChange={handleSongNameChange}
           value={songName}
           type="text"
           className="form-control"
-          placeholder="Wpisz nazwe utworu"
+          placeholder={Translate().addPanel.albumPlaceholder}
         />
         {validateInfo && validateText}
       </div>
@@ -83,7 +84,7 @@ const AddSongForm = () => {
           onChange={handleAddToFav}
           checked={fav}
         />
-        <p className="m-0">Best of the bests !</p>
+        <p className="m-0">{Translate().addPanel.best}</p>
       </div>
       <div className="text-center my-2">
         <button
@@ -91,7 +92,7 @@ const AddSongForm = () => {
           onClick={handleSubmit}
           className="btn btn-primary w-75"
         >
-          Dodaj album
+          {Translate().addPanel.button}
         </button>
       </div>
     </form>

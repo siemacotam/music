@@ -1,10 +1,9 @@
-import { useContext, useState } from "react";
-import { StoreContext } from "../../store/StoreProvider";
+import { useState } from "react";
+import Translate from "../../text/Translate";
 import AddSongForm from "./AddSongForm";
 
 const AddMusicPanel = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { language } = useContext(StoreContext);
 
   return (
     <>
@@ -15,7 +14,7 @@ const AddMusicPanel = () => {
               className="accordion-button collapsed "
               onClick={() => setIsOpen(!isOpen)}
             >
-              <strong>Dodaj nowy album</strong>
+              <strong>{Translate().addPanel.title}</strong>
             </button>
           </h3>
           {isOpen && <AddSongForm />}

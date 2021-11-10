@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { StoreContext } from "../../store/StoreProvider";
+import Translate from "../../text/Translate";
 
 const SortPanel = () => {
   const { sort, setSort } = useContext(StoreContext);
@@ -38,12 +39,12 @@ const SortPanel = () => {
   const { addUp, addDown, idDown, idUp, az, za } = allValues;
 
   const variants = [
-    { label: "Data dodania malejąco", text: "addUp", value: addUp },
-    { label: "Data dodania rosnąco", text: "addDown", value: addDown },
-    { label: "A - Z", text: "az", value: az },
-    { label: "Z - A", text: "za", value: za },
-    { label: "Id rosnąco", text: "idUp", value: idUp },
-    { label: "Id malejąco", text: "idDown", value: idDown },
+    { label: Translate().sortPanel.dateUp, text: "addUp", value: addUp },
+    { label: Translate().sortPanel.dateDown, text: "addDown", value: addDown },
+    { label: Translate().sortPanel.az, text: "az", value: az },
+    { label: Translate().sortPanel.za, text: "za", value: za },
+    { label: Translate().sortPanel.idUp, text: "idUp", value: idUp },
+    { label: Translate().sortPanel.idDown, text: "idDown", value: idDown },
   ];
 
   const allLabels = () => {
@@ -73,7 +74,7 @@ const SortPanel = () => {
               className="accordion-button collapsed "
               onClick={() => setIsOpen(!isOpen)}
             >
-              <strong>Sortuj playliste</strong>
+              <strong>{Translate().sortPanel.title}</strong>
             </button>
           </h3>
           {isOpen && <div className="px-3 my-3">{allLabels()}</div>}
