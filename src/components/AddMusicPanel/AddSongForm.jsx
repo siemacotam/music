@@ -66,7 +66,7 @@ const AddSongForm = () => {
         />
       </div>
       <div className="mb-2">
-        <label>Nazwa utworu</label>
+        <label>Nazwa albumu</label>
         <input
           onChange={handleSongNameChange}
           value={songName}
@@ -91,7 +91,7 @@ const AddSongForm = () => {
           onClick={handleSubmit}
           className="btn btn-primary w-75"
         >
-          Sign in
+          Dodaj album
         </button>
       </div>
     </form>

@@ -13,7 +13,7 @@ const AddMusicPanel = () => {
               class="accordion-button collapsed "
               onClick={() => setIsOpen(!isOpen)}
             >
-              <strong>Dodaj nowy utwór</strong>
+              <strong>Dodaj nowy album</strong>
             </button>
           </h3>
           {isOpen && <AddSongForm />}
