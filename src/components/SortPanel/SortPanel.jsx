@@ -4,7 +4,7 @@ import Translate from "../../text/Translate";
 
 const SortPanel = () => {
   const { sort, setSort } = useContext(StoreContext);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [allValues, setAllValues] = useState({
     addUp: false,
     addDown: false,

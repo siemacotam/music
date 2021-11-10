@@ -3,7 +3,7 @@ import Translate from "../../text/Translate";
 import AddSongForm from "./AddSongForm";
 
 const AddMusicPanel = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <>

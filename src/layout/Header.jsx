@@ -10,11 +10,11 @@ const Header = () => {
     <div className="d-flex flex-column justify-content-end m-1">
       <div>
         <button
-          style={{ height: "42px", width: "42px" }}
+          style={{ height: "35px", width: "35px" }}
           className={
             language === "pl"
-              ? "btn btn-white mx-1 border bg-info"
-              : "btn btn-white mx-1 border bg-white"
+              ? "btn btn-white p-0 mx-1 border bg-info"
+              : "btn btn-white p-0 mx-1 border bg-white"
           }
           onClick={() => {
             setLanguage("pl");
@@ -23,11 +23,11 @@ const Header = () => {
           PL
         </button>
         <button
-          style={{ height: "42px", width: "42px" }}
+          style={{ height: "35px", width: "35px" }}
           className={
             language === "eng"
-              ? "btn btn-white mx-1 border bg-info"
-              : "btn btn-white mx-1 border bg-white"
+              ? "btn btn-white p-0 mx-1 border bg-info"
+              : "btn btn-white p-0 mx-1 border bg-white"
           }
           onClick={() => {
             setLanguage("eng");
@@ -38,11 +38,11 @@ const Header = () => {
       </div>
       <div>
         <button
-          style={{ height: "42px", width: "42px" }}
+          style={{ height: "35px", width: "35px" }}
           className={
             lookSystem === "grid"
-              ? "btn btn-white mx-1 border bg-info"
-              : "btn btn-white mx-1 border bg-white"
+              ? "btn btn-white p-0 mx-1 border bg-info"
+              : "btn btn-white p-0 mx-1 border bg-white"
           }
           onClick={() => {
             setLookSystem("grid");
@@ -51,11 +51,11 @@ const Header = () => {
           <i className="fa fa-th"></i>
         </button>
         <button
-          style={{ height: "42px", width: "42px" }}
+          style={{ height: "35px", width: "35px" }}
           className={
             lookSystem === "column"
-              ? "btn btn-white mx-1 border bg-info"
-              : "btn btn-white mx-1 border bg-white"
+              ? "btn btn-white p-0 mx-1 border bg-info"
+              : "btn btn-white p-0 mx-1 border bg-white"
           }
           onClick={() => {
             setLookSystem("column");
@@ -70,7 +70,7 @@ const Header = () => {
     <header>
       <div className="d-flex justify-content-between align-items-center my-3 border-bottom border-dark">
         <div className="d-flex align-items-center">
-          <div className="mx-3">
+          <div className="mx-2">
             <img src={nuta} style={{ height: "40px" }} alt="" />
           </div>
           <h1 className="display-3 text-center ">Music App</h1>
