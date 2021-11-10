@@ -111,7 +111,7 @@ const MusicList = () => {
       {playlist.length > 0 && (
         <div>
           <div>{elementsToShow()}</div>
-          {<Pagination />}
+          {/* {<Pagination />} */}
         </div>
       )}
     </div>

@@ -79,11 +79,13 @@ const Pagination = () => {
   );
 
   return (
-    <ul className="pagination">
-      {prevButton}
-      {numbOfPages()}
-      {nextButton}
-    </ul>
+    <nav className="d-flex justify-content-end">
+      <ul className="pagination">
+        {prevButton}
+        {numbOfPages()}
+        {nextButton}
+      </ul>
+    </nav>
   );
 };
 
