@@ -68,7 +68,7 @@ const Pagination = () => {
     <li className="page-item">
       <button
         className="page-link"
-        disabled={activePage === howManyPages}
+        disabled={activePage === howManyPages || howManyPages === 0}
         onClick={() => {
           setActivePage((prev) => prev + 1);
         }}

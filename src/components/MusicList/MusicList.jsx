@@ -6,7 +6,6 @@ import {
 } from "../../store/StoreProvider";
 import GridSongEl from "../SongEl/GridSongEl";
 import ColumnSongEl from "../SongEl/ColumnSongEl";
-import Pagination from "../Pagination/Pagination";
 
 const MusicList = () => {
   const {
@@ -16,8 +15,8 @@ const MusicList = () => {
     setId,
     sort,
     activePage,
+    setActivePage,
     lookSystem,
-    setLookSystem,
   } = useContext(StoreContext);
 
   useEffect(() => {
@@ -101,6 +100,9 @@ const MusicList = () => {
           return i;
         }
       });
+      if (playlist.length === whatView * (activePage - 1)) {
+        setActivePage(activePage - 1);
+      }
       return kindOfView(smallArray);
     }
   };
@@ -111,7 +113,6 @@ const MusicList = () => {
       {playlist.length > 0 && (
         <div>
           <div>{elementsToShow()}</div>
-          {/* {<Pagination />} */}
         </div>
       )}
     </div>
