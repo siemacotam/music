@@ -4,12 +4,12 @@ import { StoreContext } from "../../store/StoreProvider";
 const Buttons = ({ isFav, id, fav }) => {
   const { playlist, setPlaylist } = useContext(StoreContext);
   const isTheBest = fav ? (
-    <i class="fa fa-minus-square"></i>
+    <i className="fa fa-minus-square"></i>
   ) : (
     <i className="fa fa-heart text-danger"></i>
   );
 
-  const buttonLabel = isFav ? isTheBest : <i class="fa fa-trash"></i>;
+  const buttonLabel = isFav ? isTheBest : <i className="fa fa-trash"></i>;
 
   const handleRemove = () => {
     const searchedItem = playlist.findIndex((item) => item.id === id);
@@ -34,7 +34,7 @@ const Buttons = ({ isFav, id, fav }) => {
     <button
       data-value={id}
       onClick={whichFunction}
-      className="btn btn-white col-4 d-flex justify-content-center"
+      className="btn btn-white col-4 d-flex justify-content-center border"
     >
       {buttonLabel}
     </button>

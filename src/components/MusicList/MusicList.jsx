@@ -78,7 +78,7 @@ const MusicList = () => {
     } else if (lookSystem === "column") {
       return (
         <div className="table-responsive table-striped table-hover">
-          <table class="table table-striped table-hover ">
+          <table className="table table-striped table-hover ">
             <ColumnSongEl itemToShow={items} />
           </table>
         </div>
@@ -105,33 +105,11 @@ const MusicList = () => {
     }
   };
 
-  const viewPanel = (
-    <div className="d-flex justify-content-end my-1">
-      <button
-        className="btn btn-white mx-3 border"
-        onClick={() => {
-          setLookSystem("grid");
-        }}
-      >
-        <i class="fa fa-th"></i>
-      </button>
-      <button
-        className="btn btn-white mx-3 border"
-        onClick={() => {
-          setLookSystem("column");
-        }}
-      >
-        <i class="fa fa-bars"></i>
-      </button>
-    </div>
-  );
-
   return (
     <div>
       {playlist.length === 0 && emptyPlaylist}
       {playlist.length > 0 && (
         <div>
-          {viewPanel}
           <div>{elementsToShow()}</div>
           {<Pagination />}
         </div>

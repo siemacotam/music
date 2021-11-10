@@ -10,23 +10,23 @@ const GridSongEl = ({ itemToShow }) => {
 
       const addAndIdPanel = (
         <div className="">
-          <p class="card-text text-muted m-0">
+          <p className="card-text text-muted m-0">
             Data dodania - {addedDate.substring(0, addedDate.indexOf(","))}
           </p>
 
-          <p class="card-text text-muted text-center">Id {id}</p>
+          <p className="card-text text-muted text-center">Id {id}</p>
         </div>
       );
 
       return (
-        <div className="col-md-4 p-2">
+        <div className="col-md-4 p-2" key={id}>
           <div
             className={fav ? "card bg-white border-success" : "card bg-white"}
           >
             <div className="mx-auto">
               <img
                 src={music}
-                class="card-img-top"
+                className="card-img-top"
                 style={{ height: "100px", width: "100px" }}
                 alt="..."
               />
@@ -34,15 +34,15 @@ const GridSongEl = ({ itemToShow }) => {
                 <img src={best} style={{ position: "absolute" }} alt="" />
               )}
             </div>
-            <div class="card-body d-flex flex-column">
+            <div className="card-body d-flex flex-column">
               <p
-                class="card-title text-center font-weight-bold song-title text-big"
+                className="card-title text-center font-weight-bold song-title text-big"
                 style={{ wordWrap: "break-word" }}
               >
                 <strong>{songName}</strong>
               </p>
               <p
-                class="card-title text-center flex-grow-1"
+                className="card-title text-center flex-grow-1"
                 style={{ wordWrap: "break-word" }}
               >
                 {author}

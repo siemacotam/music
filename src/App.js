@@ -20,7 +20,7 @@ function App() {
               <AddMusicPanel />
               <SortPanel />
             </div>
-            <div className="col-lg-8 px-4 songs-panel pb-3 position-relative"><MusicList /></div>
+            <div className="col-lg-8 px-4 songs-panel p-2 position-relative"><MusicList /></div>
         </div>
       </div>
     </div>

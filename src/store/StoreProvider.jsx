@@ -11,6 +11,7 @@ const StoreProvider = ({ children }) => {
   const [sort, setSort] = useState("");
   const [activePage, setActivePage] = useState(1);
   const [lookSystem, setLookSystem] = useState("grid");
+  const [language, setLanguage] = useState("pl");
 
   return (
     <StoreContext.Provider
@@ -25,6 +26,8 @@ const StoreProvider = ({ children }) => {
         setActivePage,
         lookSystem,
         setLookSystem,
+        language,
+        setLanguage,
       }}
     >
       {children}

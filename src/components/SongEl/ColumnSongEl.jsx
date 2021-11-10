@@ -16,7 +16,11 @@ const ColumnSongEl = ({ itemToShow }) => {
 
   const tableThead = () => {
     const thEl = theads.map((item) => {
-      return <th scope="col th-lg">{item.name}</th>;
+      return (
+        <th scope="col th-lg" key={item.name}>
+          {item.name}
+        </th>
+      );
     });
 
     return (

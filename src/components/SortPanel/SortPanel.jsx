@@ -49,7 +49,7 @@ const SortPanel = () => {
   const allLabels = () => {
     return variants.map((item) => {
       return (
-        <label className="d-flex mb-2 align-items-center">
+        <label className="d-flex mb-2 align-items-center" key={item.text}>
           <input
             className="mx-3"
             data-value={item.text}
@@ -70,7 +70,7 @@ const SortPanel = () => {
         <div className="accordion-item">
           <h3 className="accordion-header border-bottom">
             <button
-              class="accordion-button collapsed "
+              className="accordion-button collapsed "
               onClick={() => setIsOpen(!isOpen)}
             >
               <strong>Sortuj playliste</strong>
