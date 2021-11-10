@@ -38,8 +38,8 @@ const SortPanel = () => {
   const { addUp, addDown, idDown, idUp, az, za } = allValues;
 
   const variants = [
-    { label: "Data dodania rosnąco", text: "addUp", value: addUp },
-    { label: "Data dodania malejąco", text: "addDown", value: addDown },
+    { label: "Data dodania malejąco", text: "addUp", value: addUp },
+    { label: "Data dodania rosnąco", text: "addDown", value: addDown },
     { label: "A - Z", text: "az", value: az },
     { label: "Z - A", text: "za", value: za },
     { label: "Id rosnąco", text: "idUp", value: idUp },

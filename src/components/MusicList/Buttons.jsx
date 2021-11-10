@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import { StoreContext } from "../../store/StoreProvider";
 
-const Buttons = ({ isFav, id }) => {
+const Buttons = ({ isFav, id, fav }) => {
   const { playlist, setPlaylist } = useContext(StoreContext);
-  const buttonLabel = isFav ? (
-    <i className="fa fa-heart"></i>
+  const isTheBest = fav ? (
+    <i class="fa fa-minus-square"></i>
   ) : (
-    <i className="fa fa-minus-square"></i>
+    <i className="fa fa-heart text-danger"></i>
   );
+
+  const buttonLabel = isFav ? isTheBest : <i class="fa fa-trash"></i>;
 
   const handleRemove = () => {
     const searchedItem = playlist.findIndex((item) => item.id === id);

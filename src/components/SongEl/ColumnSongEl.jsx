@@ -3,7 +3,7 @@ import { StoreContext } from "../../store/StoreProvider";
 import Buttons from "../MusicList/Buttons";
 import best from "../../images/best.png";
 
-const ColumnSongEl = () => {
+const ColumnSongEl = ({ itemToShow }) => {
   const { playlist } = useContext(StoreContext);
   const theads = [
     { name: "" },
@@ -27,8 +27,8 @@ const ColumnSongEl = () => {
   };
 
   const columnSongs =
-    playlist.length > 0 &&
-    playlist.map((song) => {
+    itemToShow.length > 0 &&
+    itemToShow.map((song) => {
       const { id, author, songName, addedDate, fav } = song;
       const itemIndex = playlist.findIndex((song) => song.id === id);
       return (
@@ -45,18 +45,18 @@ const ColumnSongEl = () => {
           <th scope="row">{itemIndex + 1}</th>
           <td>
             <div className="d-flex flex-column">
-              <p>
+              <p className="song-title m-0">
                 <strong>{songName}</strong>
               </p>
-              <p>{author}</p>
+              <p className="m-0">{author}</p>
             </div>
           </td>
-          <td>{addedDate}</td>
+          <td>{addedDate.substring(0, addedDate.indexOf(","))}</td>
           <td>{id}</td>
           <td>
             <div className="row justify-content-around m-2">
-              <Buttons isFav={false} id={id} />
-              <Buttons isFav={true} id={id} />
+              <Buttons isFav={false} id={id} fav={fav} />
+              <Buttons isFav={true} id={id} fav={fav} />
             </div>
           </td>
         </tr>

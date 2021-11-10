@@ -1,11 +1,16 @@
 import { useContext, useState } from "react";
-import { StoreContext } from "../../store/StoreProvider";
+import {
+  StoreContext,
+  albumsPerPageGrid,
+  albumsPerPageColumn,
+} from "../../store/StoreProvider";
 import GridSongEl from "../SongEl/GridSongEl";
 import ColumnSongEl from "../SongEl/ColumnSongEl";
+import Pagination from "../Pagination/Pagination";
 
 const MusicList = () => {
-  const { playlist, sort } = useContext(StoreContext);
-  const [lookSystem, setLookSystem] = useState("grid");
+  const { playlist, sort, activePage, lookSystem, setLookSystem } =
+    useContext(StoreContext);
   const emptyPlaylist = (
     <div className="my-5">
       <p className="text-center">Lista ulubionych jest pusta</p>
@@ -38,18 +43,36 @@ const MusicList = () => {
     return newPlaylist;
   };
 
-  const elementsToShow = () => {
-    sortedPlaylist();
+  const kindOfView = (items) => {
     if (lookSystem === "grid") {
-      return <div className="row">{<GridSongEl />}</div>;
+      return <div className="row">{<GridSongEl itemToShow={items} />}</div>;
     } else if (lookSystem === "column") {
       return (
         <div className="table-responsive table-striped table-hover">
           <table class="table table-striped table-hover ">
-            <ColumnSongEl />
+            <ColumnSongEl itemToShow={items} />
           </table>
         </div>
       );
+    }
+  };
+
+  const elementsToShow = () => {
+    sortedPlaylist();
+    const whatView =
+      lookSystem === "grid" ? albumsPerPageGrid : albumsPerPageColumn;
+    if (playlist.length < whatView) {
+      return kindOfView(playlist);
+    } else if (playlist.length >= whatView) {
+      const smallArray = playlist.filter((i, index) => {
+        if (
+          index >= whatView * (activePage - 1) &&
+          index < whatView * activePage
+        ) {
+          return i;
+        }
+      });
+      return kindOfView(smallArray);
     }
   };
 
@@ -75,15 +98,16 @@ const MusicList = () => {
   );
 
   return (
-    <>
+    <div>
       {playlist.length === 0 && emptyPlaylist}
       {playlist.length > 0 && (
         <div>
           {viewPanel}
           <div>{elementsToShow()}</div>
+          {<Pagination />}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

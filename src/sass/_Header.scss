@@ -15,24 +15,36 @@
 .songs-panel {
     background-color: rgba(255,255,255,0.4);
     border-radius: 10px;
-    min-height: 80vh;
+    min-height: 84vh;
 }
 
-@media only screen and (max-width: 767px) {
-    .table>tbody>tr>td,
-    .table>tbody>tr>th,
-    .table>tfoot>tr>td,
-    .table>tfoot>tr>th,
-    .table>thead>tr>td,
-    .table>thead>tr>th {
-      display: block;
-      min-width: 100%!important;
-    }
-    .table>thead>tr>th {
-      display: none;
-    }
-    
-    .table .filterBody span {
-      display:block;
-    }
-  }
+h1 {
+    font-family: $special-font; 
+    letter-spacing: 2px;
+}
+
+.song-title {
+    font-family: $special-font;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.text-big {
+    font-size: 1.3rem;
+}
+
+button:disabled {
+    background-color: $disabled-color;
+    color: white;
+    border-color: white;
+}
+button:disabled:hover {
+    background-color: $disabled-color;
+    color: white;
+    border-color: white;
+}
+.pagination {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+}
