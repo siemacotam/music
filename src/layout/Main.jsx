@@ -8,15 +8,15 @@ import { StoreContext } from "../store/StoreProvider";
 const Main = () => {
   const { playlist } = useContext(StoreContext);
   return (
-    <main className="container row justify-content-around mx-auto">
-      <div className="col-lg-3 p-0">
+    <main className="container flex-grow-1 row justify-content-around mx-auto">
+      <aside className="col-lg-3 p-0">
         <AddMusicPanel />
         <SortPanel />
-      </div>
-      <div className="col-lg-8 px-4 songs-panel p-2 position-relative">
+      </aside>
+      <section className="col-lg-8 px-4 songs-panel p-2 mb-3 position-relative">
         {playlist.length > 0 && <Pagination />}
         <MusicList />
-      </div>
+      </section>
     </main>
   );
 };

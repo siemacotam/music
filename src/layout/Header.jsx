@@ -8,9 +8,9 @@ const Header = () => {
 
   const btnStyles = (info) => {
     if (language === info || lookSystem === info) {
-      return "btn btn-white p-0 mx-1 border bg-info";
+      return "btn btn-white p-0 m-1 bg-info";
     } else {
-      return "btn btn-white p-0 mx-1 border bg-white";
+      return "btn btn-white p-0 m-1 bg-white";
     }
   };
 
@@ -61,21 +61,23 @@ const Header = () => {
   );
 
   const buttonsPanel = (
-    <div className="d-flex flex-column justify-content-end m-1">
+    <div className="d-flex flex-column justify-content-end mb-1">
       {languageBtnsPanel}
       {albumsViewPanel}
     </div>
   );
   return (
     <header>
-      <div className="d-flex justify-content-between align-items-center my-3 border-bottom border-dark">
-        <div className="d-flex align-items-center">
-          <div>
-            <img src={nuta} style={{ height: "40px" }} alt="" />
+      <div className="border-bottom border-white mb-3 header-bg-color">
+        <div className="container d-flex justify-content-between align-items-center pt-2">
+          <div className="d-flex align-items-center">
+            <div>
+              <img src={nuta} style={{ height: "40px" }} alt="" />
+            </div>
+            <h1 className="text-center ">Music App</h1>
           </div>
-          <h1 className="text-center ">Music App</h1>
+          <div>{buttonsPanel}</div>
         </div>
-        <div>{buttonsPanel}</div>
       </div>
     </header>
   );

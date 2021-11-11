@@ -4,7 +4,6 @@ import {
   albumsPerPageGrid,
   StoreContext,
 } from "../../store/StoreProvider";
-import Translate from "../../text/Translate";
 import { numbOfPages } from "./paginationEl";
 
 const Pagination = () => {

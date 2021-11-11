@@ -3,20 +3,21 @@ import './sass/style.sass'
 import StoreProvider from './store/StoreProvider';
 import Header from './layout/Header';
 import Main from './layout/Main';
+import Footer from './layout/Footer';
 
 function App() {
-
-  return (
-    <StoreProvider>
-    <div className="App h-100 w-100">
-      <div className="container">
+return (
+  <StoreProvider>
+      <>
         <div className="bg"></div>
-        <Header />
-        <Main />
-      </div>
-    </div>
-    </StoreProvider>
-  );
+        <div className="d-flex flex-column min-vh-100">
+          <Header />
+          <Main />
+          <Footer />
+        </div>
+      </>
+  </StoreProvider>
+);
 }
 
 export default App;
