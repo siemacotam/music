@@ -70,10 +70,10 @@ const Header = () => {
     <header>
       <div className="d-flex justify-content-between align-items-center my-3 border-bottom border-dark">
         <div className="d-flex align-items-center">
-          <div className="mx-2">
+          <div>
             <img src={nuta} style={{ height: "40px" }} alt="" />
           </div>
-          <h1 className="display-3 text-center ">Music App</h1>
+          <h1 className="text-center ">Music App</h1>
         </div>
         <div>{buttonsPanel}</div>
       </div>

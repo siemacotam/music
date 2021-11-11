@@ -2,6 +2,10 @@
     font-size: 1.3rem;
 }
 
+button {
+    letter-spacing: 2px;
+}
+
 button:disabled {
     background-color: $disabled-color;
     color: white;
@@ -14,8 +18,10 @@ button:disabled:hover {
 }
 
 h1 {
-    font-family: $special-font; 
+    font-family: $header-font;
     letter-spacing: 3px;
+    font-size: 1.5rem;
+    margin-left: 10px;
 }
 
 .bg {

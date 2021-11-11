@@ -41,7 +41,7 @@ const ColumnSongEl = ({ itemToShow }) => {
             {fav && (
               <img
                 src={best}
-                style={{ height: "30px", width: "30px" }}
+                style={{ height: "40px", width: "40px" }}
                 alt=""
               />
             )}
