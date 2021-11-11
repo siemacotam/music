@@ -35,7 +35,7 @@ const Pagination = () => {
           setActivePage((prev) => prev - 1);
         }}
       >
-        {Translate().pagination.prevBtn}
+        <i class="fa fa-chevron-left"></i>
       </button>
     </li>
   );
@@ -49,7 +49,7 @@ const Pagination = () => {
           setActivePage((prev) => prev + 1);
         }}
       >
-        {Translate().pagination.nextBtn}
+        <i class="fa fa-chevron-right"></i>
       </button>
     </li>
   );

@@ -17,7 +17,7 @@ const Header = () => {
   const languageBtnsPanel = (
     <div>
       <button
-        style={{ height: "35px", width: "35px" }}
+        style={{ height: "30px", width: "30px" }}
         className={btnStyles("pl")}
         onClick={() => {
           setLanguage("pl");
@@ -26,7 +26,7 @@ const Header = () => {
         PL
       </button>
       <button
-        style={{ height: "35px", width: "35px" }}
+        style={{ height: "30px", width: "30px" }}
         className={btnStyles("eng")}
         onClick={() => {
           setLanguage("eng");
@@ -40,7 +40,7 @@ const Header = () => {
   const albumsViewPanel = (
     <div>
       <button
-        style={{ height: "35px", width: "35px" }}
+        style={{ height: "30px", width: "30px" }}
         className={btnStyles("grid")}
         onClick={() => {
           setLookSystem("grid");
@@ -49,7 +49,7 @@ const Header = () => {
         <i className="fa fa-th"></i>
       </button>
       <button
-        style={{ height: "35px", width: "35px" }}
+        style={{ height: "30px", width: "30px" }}
         className={btnStyles("column")}
         onClick={() => {
           setLookSystem("column");
