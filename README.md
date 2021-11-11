@@ -20,6 +20,7 @@ User can :
 - Switch view - grid or columns
 - Switch language - Eng or Pl
 - Albums list is saved in local storage
+- Page is full responsive on all phones/tablets/PCs
 
 ### Technologies
 
